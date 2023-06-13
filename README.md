@@ -2,6 +2,8 @@ REACT MOVIE DATABASE
 
 Personal project for learning REACT
 
+App deployed with Netlify: https://reactmoviedatabase27.netlify.app/
+Check it out!
 
 
 react-router: React Router is a popular JavaScript library for routing in React applications. It provides a simple and flexible way to manage and handle navigation within a React application.
