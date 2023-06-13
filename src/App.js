@@ -15,14 +15,15 @@ import { GlobalStyle } from "./GlobalStyle";
 const App = () => (
     <Router>
       <Header />
+      {/* The Routes component is used to define the routing configuration */}
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/:movieId' element={<Movie />} />
-        <Route path='/*' element={<NotFound />} />
+        {/* The Route component is used to define individual routes */}
+        <Route path='/' element={<Home />} /> {/* Renders the Home component when the path is '/' */}
+        <Route path='/:movieId' element={<Movie />} /> {/* Renders the Movie component with the movieId parameter */}
+        <Route path='/*' element={<NotFound />} /> {/* Renders the NotFound component for all other routes */}
       </Routes>
-      <GlobalStyle />
+      <GlobalStyle /> {/* Applies global styles */}
     </Router>
-  );
-
+);
 
 export default App;

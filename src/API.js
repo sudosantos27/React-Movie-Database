@@ -16,25 +16,30 @@ const defaultConfig = {
 };
 
 const apiSettings = {
+  // Fetch movies from the API based on search term and page
   fetchMovies: async (searchTerm, page) => {
     const endpoint = searchTerm
       ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
       : `${POPULAR_BASE_URL}&page=${page}`;
     return await (await fetch(endpoint)).json();
   },
+  // Fetch details of a specific movie
   fetchMovie: async movieId => {
     const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
     return await (await fetch(endpoint)).json();
   },
+  // Fetch credits (cast and crew) of a specific movie
   fetchCredits: async movieId => {
     const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
     return await (await fetch(creditsEndpoint)).json();
   },
   // Bonus material below for login
+  // Get the request token for authentication
   getRequestToken: async () => {
     const reqToken = await (await fetch(REQUEST_TOKEN_URL)).json();
     return reqToken.request_token;
   },
+  // Authenticate the request token with username and password
   authenticate: async (requestToken, username, password) => {
     const bodyData = {
       username,
@@ -59,6 +64,7 @@ const apiSettings = {
       return sessionId;
     }
   },
+  // Rate a movie with a given sessionId, movieId, and rating value
   rateMovie: async (sessionId, movieId, value) => {
     const endpoint = `${API_URL}movie/${movieId}/rating?api_key=${API_KEY}&session_id=${sessionId}`;
 
